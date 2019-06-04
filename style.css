@@ -1,0 +1,13 @@
+.container {
+  margin-top: 40px;
+}
+
+.table {
+}
+
+#inputEditor{
+  position: absolute;
+  display: none;
+  right: 0px;
+  z-index: 10;
+}
