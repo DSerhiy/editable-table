@@ -1,38 +1,39 @@
-const tableCells = document.querySelectorAll('.table-edit td');
-const inputEditor = document.querySelector('#inputEditor');
-let activeCell;
+(()=>{
 
-const edit = (event) => {
-  inputEditor.style.display = 'block';
-  activeCell = event.target;
-  const cell = {
-    top: activeCell.getBoundingClientRect().top + 'px', 
-    left: activeCell.getBoundingClientRect().left + 'px',
-    width: activeCell.clientWidth + 'px', 
-    height: activeCell.clientHeight + 'px', 
-    text: activeCell.textContent
+  const tableCells = document.querySelectorAll('.table-edit td');
+  const editor = createEditor();
+  let activeCell = null;
+
+  tableCells.forEach(cell => cell.addEventListener('click', activateEditor));
+  editor.addEventListener('keyup', deactivateEditor);
+
+  function createEditor() {
+    const input = document.createElement('input');
+    input.style.display = 'none';
+    input.style.position = 'absolute';
+    input.style.zIndex = '10';
+    input.style.textAlign = 'center';
+    document.body.appendChild(input);
+    return input;
   }
-    
-  inputEditor.style.width = cell.width;
-  inputEditor.style.height = cell.height;
-  inputEditor.style.top = cell.top;
-  inputEditor.style.left = cell.left;
-  inputEditor.value = cell.text;
 
-
-  console.dir(inputEditor)
-
-}
-
-const insert = (event) => {
-  
-  if(event.key === 'Enter') {
-    activeCell.textContent = event.target.value;
-    event.target.style.display = 'none';
+  function activateEditor(event) {
+    activeCell = event.target;
+    const cellRect = activeCell.getBoundingClientRect();
+    editor.style.display = 'block';
+    editor.style.width = cellRect.width + 'px';
+    editor.style.height = cellRect.height + 'px';
+    editor.style.top = cellRect.top + 'px';
+    editor.style.left = cellRect.left + 'px';
+    editor.value = activeCell.textContent;
   }
-    
-}
 
-tableCells.forEach(cell => cell.addEventListener('click', edit));
-inputEditor.addEventListener('keyup', insert);
+  function deactivateEditor(event) {
+    if(event.key === 'Enter') {
+      activeCell.textContent = editor.value;
+      editor.style.display = 'none';      
+    } 
+  } 
+
+})();
 

@@ -5,51 +5,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="style.css">
-
   <title>editable table</title>
 </head>
 <body>
-
   <div class="container">
-      <table class="table table-bordered table-dark table-edit">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
-            </tr>            
-          </tbody>                 
-        </table>
-  </div>  
-  <input type="text" id="inputEditor"></input>
+    <table class="table table-bordered table-dark table-edit">
+      <thead class="text-center">
+        <tr>
+          <th rowspan="2" class="text-uppercase align-middle">At sea</th>
+          <th colspan="3">Laden</th>
+          <th colspan="3">Ballast</th>              
+        </tr>
+        <tr>
+          <th>Full</th>
+          <th>Eco</th>
+          <th>Alt</th>
+          <th>Full</th>
+          <th>Eco</th>
+          <th>Alt</th>
+        </tr>
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <th class="text-left" scope="row">Speed, knts</th>
+          <td>13.0</td>
+          <td>12.5</td>
+          <td>-</td>
+          <td>14</td>
+          <td>13</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <th class="text-left" scope="row">Daily IFO cons, mts</th>
+          <td>20</td>
+          <td>18</td>
+          <td>-</td>
+          <td>20</td>
+          <td>18</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <th class="text-left" scope="row">Daily MGO cons, mts</th>
+          <td>20</td>
+          <td>18</td>
+          <td>-</td>
+          <td>20</td>
+          <td>18</td>
+          <td>-</td>
+        </tr>            
+      </tbody>                 
+    </table>
+    <table class="table table-bordered table-dark table-edit">
+      <thead class="text-center">
+        <tr>
+          <th class="text-uppercase align-middle">At port</th>
+          <th>Idle 24hrs</th>
+          <th>Working 24hrs</th>              
+        </tr>            
+      </thead>
+      <tbody class="text-center">
+        <tr>
+          <th class="text-left" scope="row">IFO cons, mts</th>
+          <td >13.0</td>
+          <td>12.5</td>              
+        </tr>
+        <tr>
+          <th class="text-left" scope="row">MGO cons, mts</th>
+          <td>20</td>
+          <td>18</td>              
+        </tr>                
+      </tbody>                 
+    </table>
+  </div> 
  </body>
-
  <script src="./script.js"></script>
-
 </html>
-
-<style>
- 
-
-</style>
